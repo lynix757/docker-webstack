@@ -1,0 +1,22 @@
+version: '3.1'
+    
+services:
+ db:
+  image: mysql:5.5.62
+  restart: always
+  volumes:
+   - db:/var/lib/mysql
+  environment:
+   - MYSQL_ROOT_PASSWORD=testcgc
+   - MYSQL_PASSWORD=
+   - MYSQL_DATABASE=testcgc
+   - MYSQL_USER=testcgc
+
+ pma:
+  image: phpmyadmin/phpmyadmin
+  container_name: nextcloud-phpmyadmin
+  restart: always
+  links:
+   - db
+  ports:
+   - "8998:80"
