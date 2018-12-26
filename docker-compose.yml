@@ -5,7 +5,7 @@ services:
   image: mysql:5.5.62
   restart: always
   volumes:
-   - db:/var/lib/mysql
+   - ${PWD}/mysql/data:/var/lib/mysql
   environment:
    - MYSQL_ROOT_PASSWORD=testcgc
    - MYSQL_PASSWORD=
